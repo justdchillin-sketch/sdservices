@@ -100,7 +100,7 @@
           // 2) Send to Telegram via your Netlify Function
           const payload = Object.fromEntries(formData.entries());
 
-          await fetch("/notify", {
+          await fetch("/api/notify", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload)
