@@ -7,6 +7,7 @@
     <meta name="description" content="See examples of work delivered by STEVEDEV Digital Services: websites, apps, automation and more." />
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
     <header>
       <div class="nav">
@@ -14,6 +15,7 @@
           <div class="logo" aria-hidden="true"></div>
           <div>STEVEDEV <span style="color:var(--muted);font-weight:700">Digital Services</span></div>
         </div>
+
         <nav class="links" aria-label="Primary">
           <a href="index.html">Home</a>
           <a href="about.html">About</a>
@@ -21,11 +23,18 @@
           <a href="portfolio.html">Portfolio</a>
           <a href="contact.html">Contact</a>
         </nav>
-        <div class="cta">
-          <a class="btn" href="contact.html">Get in Touch</a>
+
+        <!-- Global CTAs (no exposed URLs) -->
+        <div class="cta" style="flex-wrap:wrap; gap:10px;">
+          <a class="btn primary" href="javascript:void(0)" onclick="openLink('whatsapp')">WhatsApp</a>
+          <a class="btn primary" href="javascript:void(0)" onclick="openLink('email')">Email</a>
+          <a class="btn primary" href="javascript:void(0)" onclick="openLink('telegram')">Telegram</a>
+          <a class="btn primary" href="javascript:void(0)" onclick="openLink('facebook')">Facebook</a>
+          <a class="btn primary" href="javascript:void(0)" onclick="openLink('instagram')">Instagram</a>
         </div>
       </div>
     </header>
+
     <main class="wrap">
       <section>
         <h1>Our Work</h1>
@@ -33,36 +42,41 @@
           Below are a few examples of how we’ve helped businesses achieve their goals through technology. Every project is unique, and we’d be happy to share more case studies upon request.
         </p>
       </section>
+
       <section>
         <div class="portfolio-grid">
           <div class="portfolio-item">
-            <img src="images/portfolio1.png" alt="E‑commerce website mockup" />
+            <img src="images/portfolio1.png" alt="E-commerce website mockup" />
             <div>
-              <h3>E‑Commerce Platform</h3>
-              <p>A full‑stack online store with inventory management, secure payment integration and marketing automation.</p>
+              <h3>E-Commerce Platform</h3>
+              <p>A full-stack online store with inventory management, secure payment integration and marketing automation.</p>
             </div>
           </div>
+
           <div class="portfolio-item">
             <img src="images/portfolio2.png" alt="Intranet and HR system" />
             <div>
               <h3>Staff Portal &amp; HR System</h3>
-              <p>An intranet solution for attendance tracking, leave management and employee self‑service that scales with your team.</p>
+              <p>An intranet solution for attendance tracking, leave management and employee self-service that scales with your team.</p>
             </div>
           </div>
+
           <div class="portfolio-item">
             <img src="images/portfolio3.png" alt="Custom CRM dashboard" />
             <div>
               <h3>Custom CRM</h3>
-              <p>A customer relationship platform with role‑based dashboards, advanced reporting and seamless data import/export.</p>
+              <p>A customer relationship platform with role-based dashboards, advanced reporting and seamless data import/export.</p>
             </div>
           </div>
+
           <div class="portfolio-item">
             <img src="images/portfolio4.png" alt="Mobile booking app" />
             <div>
               <h3>Appointment Booking App</h3>
-              <p>A cross‑platform mobile app enabling clients to schedule services, receive reminders and pay securely.</p>
+              <p>A cross-platform mobile app enabling clients to schedule services, receive reminders and pay securely.</p>
             </div>
           </div>
+
           <div class="portfolio-item">
             <img src="images/portfolio5.png" alt="Corporate website redesign" />
             <div>
@@ -72,9 +86,11 @@
           </div>
         </div>
       </section>
+
       <section style="text-align:center; padding:40px 0;">
         <h2 class="section-title">Need proof?</h2>
         <p class="section-sub">Request more examples or testimonials to see how we deliver results.</p>
+
         <div class="cta" style="justify-content:center; flex-wrap:wrap; gap:10px; margin-top:20px;">
           <a class="btn primary" href="javascript:void(0)" onclick="openLink('whatsapp')">WhatsApp Us</a>
           <a class="btn primary" href="javascript:void(0)" onclick="openLink('email')">Email Us</a>
@@ -84,14 +100,17 @@
         </div>
       </section>
     </main>
+
     <footer>
       <div>© <span id="year"></span> STEVEDEV Digital Services. All rights reserved.</div>
       <div class="tiny">Built for trust, structure and reliable delivery.</div>
     </footer>
+
     <script>
       document.getElementById('year').textContent = new Date().getFullYear();
     </script>
+
     <!-- Load global script for link actions -->
     <script src="script.js"></script>
   </body>
-</html>
+  </html>
