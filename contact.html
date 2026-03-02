@@ -7,6 +7,7 @@
     <meta name="description" content="Get in touch with STEVEDEV Digital Services. Send us a message or reach us via WhatsApp, email or Telegram." />
     <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
     <header>
       <div class="nav">
@@ -14,6 +15,7 @@
           <div class="logo" aria-hidden="true"></div>
           <div>STEVEDEV <span style="color:var(--muted);font-weight:700">Digital Services</span></div>
         </div>
+
         <nav class="links" aria-label="Primary">
           <a href="index.html">Home</a>
           <a href="about.html">About</a>
@@ -21,13 +23,20 @@
           <a href="portfolio.html">Portfolio</a>
           <a href="contact.html">Contact</a>
         </nav>
-        <div class="cta">
-          <a class="btn" href="index.html#call-to-action">Start a Project</a>
+
+        <!-- Global CTAs -->
+        <div class="cta" style="flex-wrap:wrap; gap:10px;">
+          <a class="btn primary" href="javascript:void(0)" onclick="openLink('whatsapp')">WhatsApp</a>
+          <a class="btn primary" href="javascript:void(0)" onclick="openLink('email')">Email</a>
+          <a class="btn primary" href="javascript:void(0)" onclick="openLink('telegram')">Telegram</a>
+          <a class="btn primary" href="javascript:void(0)" onclick="openLink('facebook')">Facebook</a>
+          <a class="btn primary" href="javascript:void(0)" onclick="openLink('instagram')">Instagram</a>
         </div>
       </div>
     </header>
 
     <main class="wrap">
+
       <section>
         <h1>Contact Us</h1>
         <p class="sub">We’d love to hear about your project.</p>
@@ -47,20 +56,31 @@
       </section>
 
       <section style="margin-top:40px;">
-        <h2 class="section-title">Other Ways to Reach Us</h2>
+        <h2 class="section-title">Quick Contact</h2>
 
         <div class="cta" style="margin-top:20px; flex-wrap:wrap; gap:10px;">
-          <a class="btn primary" href="javascript:void(0)" onclick="openLink('whatsapp')">WhatsApp</a>
-          <a class="btn primary" href="javascript:void(0)" onclick="openLink('email')">Email</a>
+          <a class="btn primary" href="javascript:void(0)" onclick="openLink('whatsapp')">Chat on WhatsApp</a>
+          <a class="btn primary" href="javascript:void(0)" onclick="openLink('email')">Send Email</a>
           <a class="btn primary" href="javascript:void(0)" onclick="openLink('telegram')">Telegram</a>
-          <a class="btn primary" href="javascript:void(0)" onclick="openLink('facebook')">Facebook</a>
-          <a class="btn primary" href="javascript:void(0)" onclick="openLink('instagram')">Instagram</a>
         </div>
       </section>
+
+      <!-- Follow Us Section -->
+      <section style="margin-top:40px; text-align:center;">
+        <h2 class="section-title">Follow Us</h2>
+        <p class="section-sub">Stay updated with our latest projects and insights.</p>
+
+        <div class="cta" style="justify-content:center; margin-top:20px; flex-wrap:wrap; gap:10px;">
+          <a class="btn primary" href="javascript:void(0)" onclick="openLink('facebook')">Like us on Facebook</a>
+          <a class="btn primary" href="javascript:void(0)" onclick="openLink('instagram')">Follow us on Instagram</a>
+        </div>
+      </section>
+
     </main>
 
     <footer>
       <div>© <span id="year"></span> STEVEDEV Digital Services.</div>
+      <div class="tiny">Built for trust, structure and reliable delivery.</div>
     </footer>
 
     <script>
@@ -96,4 +116,4 @@
 
     <script src="script.js"></script>
   </body>
-  </html>
+</html>
