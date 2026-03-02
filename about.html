@@ -14,6 +14,7 @@
           <div class="logo" aria-hidden="true"></div>
           <div>STEVEDEV <span style="color:var(--muted);font-weight:700">Digital Services</span></div>
         </div>
+
         <nav class="links" aria-label="Primary">
           <a href="index.html">Home</a>
           <a href="about.html">About</a>
@@ -21,24 +22,33 @@
           <a href="portfolio.html">Portfolio</a>
           <a href="contact.html">Contact</a>
         </nav>
-        <div class="cta">
-          <a class="btn" href="contact.html">Get in Touch</a>
+
+        <!-- Header CTAs (now consistent across pages) -->
+        <div class="cta" style="flex-wrap:wrap; gap:10px;">
+          <a class="btn primary" href="javascript:void(0)" onclick="openLink('whatsapp')">WhatsApp</a>
+          <a class="btn primary" href="javascript:void(0)" onclick="openLink('email')">Email</a>
+          <a class="btn primary" href="javascript:void(0)" onclick="openLink('telegram')">Telegram</a>
+          <a class="btn primary" href="javascript:void(0)" onclick="openLink('facebook')">Facebook</a>
+          <a class="btn primary" href="javascript:void(0)" onclick="openLink('instagram')">Instagram</a>
         </div>
       </div>
     </header>
+
     <main class="wrap">
       <section>
         <h1>About STEVEDEV Digital Services</h1>
         <p class="sub">
-          We are a Lagos‑based technology partner focused on helping businesses of all sizes innovate and thrive. Founded by a team of developers and strategists, STEVEDEV Digital Services combines technical excellence with a deep understanding of business processes.
+          We are a Lagos-based technology partner focused on helping businesses of all sizes innovate and thrive. Founded by a team of developers and strategists, STEVEDEV Digital Services combines technical excellence with a deep understanding of business processes.
         </p>
       </section>
+
       <section>
         <h2 class="section-title">Our Mission</h2>
         <p class="section-sub">
           To empower organisations with reliable, maintainable and scalable digital systems that simplify workflows, improve customer experience and unlock new opportunities.
         </p>
       </section>
+
       <section>
         <h2 class="section-title">Our Values</h2>
         <div class="grid">
@@ -56,33 +66,39 @@
           </div>
         </div>
       </section>
+
       <section>
         <h2 class="section-title">Why Choose Us?</h2>
         <ul class="list">
           <li>Local expertise with global standards</li>
-          <li>End‑to‑end service from strategy to deployment</li>
+          <li>End-to-end service from strategy to deployment</li>
           <li>Responsive support and transparent communication</li>
           <li>Proven track record across multiple industries</li>
         </ul>
       </section>
+
       <section id="call-action-about" style="text-align:center; padding:40px 0;">
         <h2 class="section-title">Let’s work together</h2>
         <p class="section-sub">Ready to transform your business? We’d love to hear about your project.</p>
-        <div class="cta" style="justify-content:center; margin-top:20px;">
+
+        <div class="cta" style="justify-content:center; margin-top:20px; flex-wrap:wrap; gap:10px;">
           <a class="btn primary" href="javascript:void(0)" onclick="openLink('whatsapp')">Chat on WhatsApp</a>
           <a class="btn primary" href="javascript:void(0)" onclick="openLink('email')">Email Us</a>
           <a class="btn primary" href="javascript:void(0)" onclick="openLink('telegram')">Connect on Telegram</a>
+          <a class="btn primary" href="javascript:void(0)" onclick="openLink('facebook')">Facebook</a>
+          <a class="btn primary" href="javascript:void(0)" onclick="openLink('instagram')">Instagram</a>
         </div>
       </section>
     </main>
+
     <footer>
       <div>© <span id="year"></span> STEVEDEV Digital Services. All rights reserved.</div>
       <div class="tiny">Built for trust, structure and reliable delivery.</div>
     </footer>
+
     <script>
       document.getElementById('year').textContent = new Date().getFullYear();
     </script>
-    <!-- Load global script for link actions -->
     <script src="script.js"></script>
   </body>
 </html>
