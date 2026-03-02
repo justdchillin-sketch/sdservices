@@ -30,27 +30,14 @@
     <main class="wrap">
       <section>
         <h1>Contact Us</h1>
-        <p class="sub">We’d love to hear about your project. Use the form below or connect with us through your preferred channel.</p>
+        <p class="sub">We’d love to hear about your project.</p>
       </section>
 
       <section>
         <div class="panel">
           <h2 class="section-title">Send a Message</h2>
 
-          <form
-            name="contact"
-            method="POST"
-            data-netlify="true"
-            netlify-honeypot="bot-field"
-            class="contact-form"
-            id="contactForm"
-          >
-            <input type="hidden" name="form-name" value="contact" />
-
-            <p hidden>
-              <label>Don’t fill this out: <input name="bot-field" /></label>
-            </p>
-
+          <form class="contact-form" id="contactForm">
             <input type="text" name="name" placeholder="Your name" required />
             <input type="email" name="email" placeholder="Your email" required />
             <textarea name="message" rows="5" placeholder="Tell us about your project" required></textarea>
@@ -61,10 +48,8 @@
 
       <section style="margin-top:40px;">
         <h2 class="section-title">Other Ways to Reach Us</h2>
-        <p class="section-sub">Prefer to chat? Use any of the buttons below and we’ll respond promptly.</p>
 
         <div class="cta" style="margin-top:20px; flex-wrap:wrap; gap:10px;">
-          <!-- Use our script-based links to avoid exposing direct contact details -->
           <a class="btn primary" href="javascript:void(0)" onclick="openLink('whatsapp')">WhatsApp</a>
           <a class="btn primary" href="javascript:void(0)" onclick="openLink('email')">Email</a>
           <a class="btn primary" href="javascript:void(0)" onclick="openLink('telegram')">Telegram</a>
@@ -75,8 +60,7 @@
     </main>
 
     <footer>
-      <div>© <span id="year"></span> STEVEDEV Digital Services. All rights reserved.</div>
-      <div class="tiny">Built for trust, structure and reliable delivery.</div>
+      <div>© <span id="year"></span> STEVEDEV Digital Services.</div>
     </footer>
 
     <script>
@@ -88,33 +72,28 @@
         e.preventDefault();
 
         const formData = new FormData(form);
+        const payload = Object.fromEntries(formData.entries());
 
         try {
-          // 1) Save to Netlify Forms (Dashboard)
-          await fetch("/", {
-            method: "POST",
-            headers: { "Content-Type": "application/x-www-form-urlencoded" },
-            body: new URLSearchParams(formData).toString()
-          });
-
-          // 2) Send to Telegram via your Netlify Function
-          const payload = Object.fromEntries(formData.entries());
-
-          await fetch("/.netlify/functions/notify", {
+          const response = await fetch("/api/notify", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload)
           });
 
-          // 3) Redirect to thanks (you confirmed /thanks works)
-          window.location.href = "/thanks";
+          if (!response.ok) {
+            throw new Error("Failed to send message");
+          }
+
+          window.location.href = "/thanks.html";
+
         } catch (err) {
           console.error(err);
           alert("Something went wrong. Please try again.");
         }
       });
     </script>
-    <!-- Load global script for link actions -->
+
     <script src="script.js"></script>
   </body>
 </html>
