@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Contact Us | STEVEDEV Digital Services</title>
+    <meta name="description" content="Get in touch with STEVEDEV Digital Services. Send us a message or reach us via WhatsApp, email or Telegram." />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="nav">
+        <div class="brand">
+          <div class="logo" aria-hidden="true"></div>
+          <div>STEVEDEV <span style="color:var(--muted);font-weight:700">Digital Services</span></div>
+        </div>
+        <nav class="links" aria-label="Primary">
+          <a href="index.html">Home</a>
+          <a href="about.html">About</a>
+          <a href="services.html">Services</a>
+          <a href="portfolio.html">Portfolio</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+        <div class="cta">
+          <a class="btn" href="index.html#call-to-action">Start a Project</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section>
+        <h1>Contact Us</h1>
+        <p class="sub">We’d love to hear about your project. Use the form below or connect with us through your preferred channel.</p>
+      </section>
+
+      <section>
+        <div class="panel">
+          <h2 class="section-title">Send a Message</h2>
+
+          <form
+            name="contact"
+            method="POST"
+            data-netlify="true"
+            netlify-honeypot="bot-field"
+            class="contact-form"
+            id="contactForm"
+          >
+            <input type="hidden" name="form-name" value="contact" />
+
+            <p hidden>
+              <label>Don’t fill this out: <input name="bot-field" /></label>
+            </p>
+
+            <input type="text" name="name" placeholder="Your name" required />
+            <input type="email" name="email" placeholder="Your email" required />
+            <textarea name="message" rows="5" placeholder="Tell us about your project" required></textarea>
+            <button type="submit" class="btn primary">Send Message</button>
+          </form>
+        </div>
+      </section>
+
+      <section style="margin-top:40px;">
+        <h2 class="section-title">Other Ways to Reach Us</h2>
+        <p class="section-sub">Prefer to chat? Use any of the buttons below and we’ll respond promptly.</p>
+
+        <div class="cta" style="margin-top:20px; flex-wrap:wrap; gap:10px;">
+          <!-- Use our script-based links to avoid exposing direct contact details -->
+          <a class="btn primary" href="javascript:void(0)" onclick="openLink('whatsapp')">WhatsApp</a>
+          <a class="btn primary" href="javascript:void(0)" onclick="openLink('email')">Email</a>
+          <a class="btn primary" href="javascript:void(0)" onclick="openLink('telegram')">Telegram</a>
+          <a class="btn primary" href="javascript:void(0)" onclick="openLink('facebook')">Facebook</a>
+          <a class="btn primary" href="javascript:void(0)" onclick="openLink('instagram')">Instagram</a>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> STEVEDEV Digital Services. All rights reserved.</div>
+      <div class="tiny">Built for trust, structure and reliable delivery.</div>
+    </footer>
+
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      const form = document.getElementById("contactForm");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(form);
+
+        try {
+          // 1) Save to Netlify Forms (Dashboard)
+          await fetch("/", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: new URLSearchParams(formData).toString()
+          });
+
+          // 2) Send to Telegram via your Netlify Function
+          const payload = Object.fromEntries(formData.entries());
+
+          await fetch("/.netlify/functions/notify", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload)
+          });
+
+          // 3) Redirect to thanks (you confirmed /thanks works)
+          window.location.href = "/thanks";
+        } catch (err) {
+          console.error(err);
+          alert("Something went wrong. Please try again.");
+        }
+      });
+    </script>
+    <!-- Load global script for link actions -->
+    <script src="script.js"></script>
+  </body>
+</html>
